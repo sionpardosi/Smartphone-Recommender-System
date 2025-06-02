@@ -20,9 +20,10 @@ Dengan menerapkan pendekatan Content-Based Filtering dan Collaborative Filtering
 
 ### ✨ Pentingnya Proyek
 
-* **Personalisasi**: Memberikan pengalaman pengguna yang lebih relevan dan terarah.
-* **Efisiensi**: Menghemat waktu pengguna dalam pencarian produk.
-* **Nilai Bisnis**: Dapat digunakan untuk platform e-commerce dalam meningkatkan engagement dan konversi penjualan.
+* **Peningkatan Pengalaman Pengguna**: Membantu pengguna menemukan produk yang relevan tanpa harus melakukan riset manual.
+* **Efisiensi Waktu**: Mempercepat proses pengambilan keputusan dalam memilih ponsel.
+* **Personalisasi**: Menyesuaikan rekomendasi dengan kebutuhan dan kebiasaan masing-masing pengguna.
+* **Aplikasi Luas**: Dapat diimplementasikan pada platform e-commerce untuk meningkatkan kepuasan pengguna dan nilai bisnis.
 
 ### 📂 Referensi
 
