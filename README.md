@@ -57,15 +57,19 @@ Dengan menerapkan pendekatan Content-Based Filtering dan Collaborative Filtering
 
 ### 🔗 Sumber Dataset
 
-Dataset terdiri dari tiga file utama:
-
-* **data.csv**: Informasi spesifikasi ponsel (33 baris, 14 kolom)
-* **rating.csv**: Data rating pengguna terhadap ponsel (990 baris)
-* **users.csv**: Profil pengguna (99 baris)
+Dataset yang digunakan dalam proyek ini mencakup informasi lengkap mengenai berbagai tipe ponsel pintar, ulasan pengguna, serta profil pengguna. Dataset ini bersumber dari platform Kaggle dan dapat diunduh melalui tautan berikut:
 
 **Link Dataset:** [Cellphone Recommendation Dataset - Kaggle](https://www.kaggle.com/datasets/meirnizri/cellphones-recommendations)
 
+Dataset terdiri dari tiga file utama:
+
+* **data.csv**: Menyimpan informasi spesifikasi ponsel, terdiri dari 33 baris dan 14 kolom tanpa nilai yang hilang.
+* **rating.csv**: Berisi data penilaian (rating) yang diberikan oleh pengguna terhadap ponsel, terdiri dari 990 baris dan 3 kolom.
+* **users.csv**: Berisi profil pengguna seperti usia, jenis kelamin, dan pekerjaan, terdiri dari 99 baris dan 4 kolom.
+
 ### 📃 Struktur Relasi Data
+
+Ketiga dataset ini dihubungkan melalui relasi satu-ke-banyak, sebagai berikut:
 
 ```
 users.csv ──┐
@@ -75,7 +79,47 @@ users.csv ──┐
 
 ### 💱 Deskripsi Variabel
 
-Lihat tabel fitur lengkap pada bagian kode. Semua fitur telah dijelaskan dalam markdown sebelumnya dan disesuaikan dengan output `.info()` dari `pandas`.
+Berikut adalah ringkasan dari fitur-fitur penting pada masing-masing dataset:
+
+#### 📱 data.csv (Spesifikasi Ponsel)
+
+| Kolom            | Tipe Data | Deskripsi                             |
+| ---------------- | --------- | ------------------------------------- |
+| cellphone\_id    | int64     | ID unik untuk setiap ponsel           |
+| brand            | object    | Merek ponsel (contoh: Apple, Samsung) |
+| model            | object    | Nama model ponsel                     |
+| operating system | object    | Sistem operasi (contoh: Android, iOS) |
+| internal memory  | int64     | Kapasitas memori internal (dalam GB)  |
+| RAM              | int64     | Besar RAM (dalam GB)                  |
+| performance      | float64   | Skor performa keseluruhan             |
+| main camera      | int64     | Resolusi kamera utama (MP)            |
+| selfie camera    | int64     | Resolusi kamera depan (MP)            |
+| battery size     | int64     | Kapasitas baterai (mAh)               |
+| screen size      | float64   | Ukuran layar (inci)                   |
+| weight           | int64     | Berat ponsel (gram)                   |
+| price            | int64     | Harga dalam USD                       |
+| release date     | object    | Tanggal rilis produk                  |
+
+#### 📊 rating.csv (Penilaian Pengguna)
+
+| Kolom         | Tipe Data | Deskripsi                          |
+| ------------- | --------- | ---------------------------------- |
+| user\_id      | int64     | ID pengguna yang memberikan rating |
+| cellphone\_id | int64     | ID ponsel yang dinilai             |
+| rating        | int64     | Nilai rating (skala 1-10)          |
+
+#### 👤 users.csv (Profil Pengguna)
+
+| Kolom      | Tipe Data | Deskripsi              |
+| ---------- | --------- | ---------------------- |
+| user\_id   | int64     | ID unik pengguna       |
+| age        | int64     | Usia pengguna          |
+| gender     | object    | Jenis kelamin pengguna |
+| occupation | object    | Pekerjaan pengguna     |
+
+Dengan informasi yang tersedia, sistem rekomendasi dapat dikembangkan secara menyeluruh dengan mempertimbangkan baik karakteristik pengguna maupun fitur teknis dari produk ponsel yang tersedia.
+
+---
 
 ### 📊 Exploratory Data Analysis (EDA)
 
