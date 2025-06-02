@@ -406,9 +406,7 @@ Dimana:
 
 Grafik berikut menunjukkan perkembangan RMSE selama proses training:
 
-```markdown
-![RMSE Training Progress](path-to-rmse-graph)
-```
+![Grafik train vs test](https://raw.githubusercontent.com/AbiyaMakruf/Dicoding-ModelSistemRekomendasi/main/image/image6.png)
 
 *Catatan: Silakan tambahkan grafik yang menampilkan `history.history['root_mean_squared_error']` dan `history.history['val_root_mean_squared_error']`*
 
