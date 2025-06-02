@@ -380,6 +380,10 @@ Formula RMSE:
 RMSE = \sqrt{\frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2}
 ```
 
+$$
+\text{RMSE} = \sqrt{\frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2}
+$$
+
 Dimana:
 - `y_i` = nilai rating sebenarnya
 - `ŷ_i` = nilai rating hasil prediksi model
