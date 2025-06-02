@@ -380,10 +380,6 @@ Formula RMSE:
 RMSE = \sqrt{\frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2}
 ```
 
-$$
-\text{RMSE} = \sqrt{\frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2}
-$$
-
 Dimana:
 - `y_i` = nilai rating sebenarnya
 - `ŷ_i` = nilai rating hasil prediksi model
@@ -399,8 +395,8 @@ Dimana:
 
 | Dataset | RMSE Score |
 |---------|------------|
-| Training | 0.2063 |
-| Testing | 0.6416 |
+| Training | 0.2668 |
+| Testing | 0.6377 |
 
 ### 🌄 Visualisasi Performa Training
 
@@ -415,8 +411,8 @@ Grafik berikut menunjukkan perkembangan RMSE selama proses training:
 ### Analisis Hasil Evaluasi
 
 **Interpretasi Nilai RMSE:**
-- **Training RMSE (0.2063)**: Model menunjukkan performa yang sangat baik pada data training dengan tingkat kesalahan yang rendah
-- **Testing RMSE (0.6416)**: Terdapat peningkatan error pada data testing, namun masih dalam rentang yang dapat diterima untuk sistem rekomendasi
+- **Training RMSE (0.2668)**: Model menunjukkan performa yang sangat baik pada data training dengan tingkat kesalahan yang rendah
+- **Testing RMSE (0.6377)**: Terdapat peningkatan error pada data testing, namun masih dalam rentang yang dapat diterima untuk sistem rekomendasi
 
 **Kesenjangan Training-Testing:**
 Perbedaan RMSE antara training dan testing sebesar ~0.44 menunjukkan adanya slight overfitting, namun model masih mampu memberikan prediksi yang reasonable pada data baru.
@@ -492,6 +488,7 @@ Sistem rekomendasi ini terbukti mampu memberikan solusi praktis untuk meningkatk
 * Analytics Vidhya: Recommendation Systems Tutorial [Link](https://www.analyticsvidhya.com)
 * Secoda: Recommendation System Guide [Link](https://www.secoda.co)
 * Paul P.: Evaluating Recommender Systems [Medium](https://medium.com)
+* [R. Burke, A. Felfernig, and M. H. Göker, “Recommender Systems: An Overview”, AIMag, vol. 32, no. 3, pp. 13-18, Jun. 2011.](https://ojs.aaai.org/aimagazine/index.php/aimagazine/article/view/2361) 
 
 ---
 
