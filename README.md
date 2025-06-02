@@ -2,7 +2,7 @@
 
 ## ✨ Penilaian Proyek
 
-Proyek ini dirancang untuk memenuhi seluruh kriteria dalam rubrik penilaian wajib dan tambahan dari submission Machine Learning Terapan Dicoding. Semua elemen dari latar belakang hingga evaluasi telah ditulis secara lengkap dan sistematis.
+Proyek ini dirancang untuk Machine Learning Terapan Dicoding. Semua elemen dari latar belakang hingga evaluasi telah ditulis secara lengkap dan sistematis.
 
 ---
 
