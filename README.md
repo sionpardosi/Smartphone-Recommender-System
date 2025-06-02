@@ -139,21 +139,23 @@ Berikut adalah beberapa hasil eksplorasi awal terhadap data yang digunakan. Visu
   * Android menjadi sistem operasi yang paling banyak digunakan dalam dataset.
   * iOS muncul sebagai alternatif dengan proporsi lebih kecil.
 -- -
-![Distribusi Sistem Operasi Ponsel](https://raw.githubusercontent.com/AbiyaMakruf/Dicoding-ModelSistemRekomendasi/main/image/image2.png)
+![Distribusi Sistem Operasi Ponsel](https://github.com/sionpardosi/Smartphone-Recommender-System/blob/main/image/Distribusi-Sistem-Operasi-Ponsel.png)
 
 * **Distribusi Tahun Rilis Ponsel**
-  ![](path-to-release-year-distribution-image)
 
   * Grafik ini menampilkan distribusi ponsel berdasarkan tahun peluncuran.
   * Sebagian besar model dirilis pada tahun-tahun terkini seperti 2024 dan 2025.
   * Tahun-tahun sebelumnya memiliki representasi data yang jauh lebih rendah.
+  -- -
+  ![Distribusi Tahun Rilis Ponsel](https://raw.githubusercontent.com/AbiyaMakruf/Dicoding-ModelSistemRekomendasi/main/image/image3.png)
 
 * **Distribusi Rating dari Pengguna**
-  ![](path-to-rating-distribution-image)
 
   * Histogram ini menunjukkan sebaran rating yang diberikan pengguna.
   * Rating 8 merupakan nilai yang paling sering diberikan, diikuti oleh 7 dan 10.
   * Nilai rating rendah seperti 2, 3, dan 4 muncul dalam jumlah yang terbatas.
+  -- -
+  ![Distribusi Tahun Rilis Ponsel](https://raw.githubusercontent.com/AbiyaMakruf/Dicoding-ModelSistemRekomendasi/main/image/image3.png)
 
 Catatan: Visualisasi tambahan seperti distribusi usia pengguna atau analisis outlier dapat ditambahkan untuk memperkuat pemahaman terhadap data. Gunakan `matplotlib`, `seaborn`, atau pustaka visualisasi lain untuk menghasilkan grafik dengan tampilan informatif dan menarik.
 
