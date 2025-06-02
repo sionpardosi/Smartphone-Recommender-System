@@ -126,19 +126,20 @@ Dengan informasi yang tersedia, sistem rekomendasi dapat dikembangkan secara men
 Berikut adalah beberapa hasil eksplorasi awal terhadap data yang digunakan. Visualisasi ini bertujuan untuk memahami pola distribusi data, menemukan insight awal, dan mengidentifikasi potensi masalah seperti ketidakseimbangan data atau outlier.
 
 * **Distribusi Merek Ponsel**
--- -
-  ![Distribusi Brand Ponsel](https://github.com/sionpardosi/Smartphone-Recommender-System/blob/main/image/visualisasi-Distribusi-Merek-Ponsel.png)
 
   * Visualisasi ini menunjukkan frekuensi kemunculan tiap merek dalam dataset.
   * Samsung menjadi merek paling dominan, diikuti oleh Apple.
   * Merek lain seperti Asus, Oppo, Vivo, dan Sony muncul dalam jumlah yang lebih sedikit.
+-- -
+  ![Distribusi Brand Ponsel](https://github.com/sionpardosi/Smartphone-Recommender-System/blob/main/image/visualisasi-Distribusi-Merek-Ponsel.png)
 
 * **Distribusi Sistem Operasi**
-  ![](path-to-os-distribution-image)
 
   * Gambar ini menampilkan jumlah ponsel berdasarkan sistem operasinya.
   * Android menjadi sistem operasi yang paling banyak digunakan dalam dataset.
   * iOS muncul sebagai alternatif dengan proporsi lebih kecil.
+-- -
+![Distribusi Sistem Operasi Ponsel](https://raw.githubusercontent.com/AbiyaMakruf/Dicoding-ModelSistemRekomendasi/main/image/image2.png)
 
 * **Distribusi Tahun Rilis Ponsel**
   ![](path-to-release-year-distribution-image)
