@@ -31,25 +31,25 @@ Dengan menerapkan pendekatan Content-Based Filtering dan Collaborative Filtering
 
 ### ❓ Problem Statements
 
-* Bagaimana membantu pengguna menemukan ponsel yang paling sesuai dengan preferensi mereka?
-* Bagaimana membangun sistem rekomendasi yang efektif berdasarkan data historis rating pengguna?
+* Bagaimana sistem dapat membantu pengguna dalam menemukan ponsel yang paling sesuai dengan kebutuhan dan preferensi mereka secara efisien dan akurat?
+* Bagaimana sistem dapat memberikan rekomendasi ponsel yang serupa dengan ponsel yang sebelumnya digunakan oleh pengguna, meskipun pengguna tersebut tidak memahami spesifikasi teknis dari ponsel lamanya?
 
 ### 🚀 Goals
 
-* Membangun sistem rekomendasi ponsel menggunakan dua pendekatan: content-based filtering dan collaborative filtering.
-* Menyediakan daftar rekomendasi (Top-N recommendation) yang relevan untuk setiap pengguna.
+* Mengembangkan sistem rekomendasi yang mampu menyajikan daftar ponsel terbaik berdasarkan rating yang telah diberikan pengguna terhadap ponsel sebelumnya.
+* Membangun sistem yang dapat merekomendasikan ponsel berdasarkan model ponsel lama yang dikenal pengguna, misalnya "iPhone XR", tanpa harus memahami detail spesifikasinya.
 
 ### 🔨 Solution Approach
 
 1. **Content-Based Filtering**:
 
-   * Menggunakan fitur-fitur ponsel seperti brand, model, dan sistem operasi.
-   * Menggunakan TF-IDF dan cosine similarity untuk menghitung kesamaan antar produk.
+   * Menggunakan fitur-fitur deskriptif dari ponsel seperti brand, model, dan sistem operasi untuk membentuk profil item.
+   * Menggunakan metode seperti TF-IDF dan cosine similarity untuk mengukur tingkat kemiripan antar produk, sehingga sistem dapat merekomendasikan ponsel yang mirip dengan yang pernah disukai pengguna.
 
 2. **Collaborative Filtering**:
 
-   * Menggunakan data interaksi pengguna-item (rating).
-   * Membangun model deep learning menggunakan Keras dan TensorFlow untuk mempelajari preferensi pengguna.
+   * Menggunakan data interaksi pengguna dengan item, terutama data rating, untuk membangun model yang dapat memahami preferensi pengguna secara implisit.
+   * Mengimplementasikan model neural collaborative filtering berbasis deep learning dengan framework TensorFlow dan Keras, untuk menghasilkan rekomendasi berdasarkan kesamaan pola perilaku antar pengguna.
 
 ---
 
