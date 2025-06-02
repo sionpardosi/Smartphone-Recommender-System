@@ -143,7 +143,7 @@ Berikut adalah beberapa hasil eksplorasi awal terhadap data yang digunakan. Visu
   ![](path-to-release-year-distribution-image)
 
   * Grafik ini menampilkan distribusi ponsel berdasarkan tahun peluncuran.
-  * Sebagian besar model dirilis pada tahun-tahun terkini seperti 2021 dan 2022.
+  * Sebagian besar model dirilis pada tahun-tahun terkini seperti 2024 dan 2025.
   * Tahun-tahun sebelumnya memiliki representasi data yang jauh lebih rendah.
 
 * **Distribusi Rating dari Pengguna**
@@ -165,6 +165,8 @@ Catatan: Visualisasi tambahan seperti distribusi usia pengguna atau analisis out
 * Menangani missing values (`NaN`) pada kolom `occupation`
 * Menghapus outliers pada `rating` dan `gender`
 * Normalisasi nilai dengan encoding (label mapping)
+* Mengubah format penulisan. 
+* Mereplace value.
 * Pembagian data menjadi training dan validation (80:20)
 
 ### 📄 Alasan Setiap Tahapan
