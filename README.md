@@ -123,16 +123,37 @@ Dengan informasi yang tersedia, sistem rekomendasi dapat dikembangkan secara men
 
 ### 📊 Exploratory Data Analysis (EDA)
 
-Beberapa grafik yang perlu Anda sisipkan (gunakan `![](path-to-image)`):
+Berikut adalah beberapa hasil eksplorasi awal terhadap data yang digunakan. Visualisasi ini bertujuan untuk memahami pola distribusi data, menemukan insight awal, dan mengidentifikasi potensi masalah seperti ketidakseimbangan data atau outlier.
 
-* Distribusi brand ponsel
-* Distribusi sistem operasi
-* Distribusi tahun rilis
-* Histogram rating pengguna
-* Outliers pada rating
-* Penyebaran usia pengguna
+* **Distribusi Merek Ponsel**
+  ![](path-to-brand-distribution-image)
 
-Gunakan gambar hasil dari `matplotlib` dan `seaborn` pada kode Anda.
+  * Visualisasi ini menunjukkan frekuensi kemunculan tiap merek dalam dataset.
+  * Samsung menjadi merek paling dominan, diikuti oleh Apple.
+  * Merek lain seperti Asus, Oppo, Vivo, dan Sony muncul dalam jumlah yang lebih sedikit.
+
+* **Distribusi Sistem Operasi**
+  ![](path-to-os-distribution-image)
+
+  * Gambar ini menampilkan jumlah ponsel berdasarkan sistem operasinya.
+  * Android menjadi sistem operasi yang paling banyak digunakan dalam dataset.
+  * iOS muncul sebagai alternatif dengan proporsi lebih kecil.
+
+* **Distribusi Tahun Rilis Ponsel**
+  ![](path-to-release-year-distribution-image)
+
+  * Grafik ini menampilkan distribusi ponsel berdasarkan tahun peluncuran.
+  * Sebagian besar model dirilis pada tahun-tahun terkini seperti 2021 dan 2022.
+  * Tahun-tahun sebelumnya memiliki representasi data yang jauh lebih rendah.
+
+* **Distribusi Rating dari Pengguna**
+  ![](path-to-rating-distribution-image)
+
+  * Histogram ini menunjukkan sebaran rating yang diberikan pengguna.
+  * Rating 8 merupakan nilai yang paling sering diberikan, diikuti oleh 7 dan 10.
+  * Nilai rating rendah seperti 2, 3, dan 4 muncul dalam jumlah yang terbatas.
+
+Catatan: Visualisasi tambahan seperti distribusi usia pengguna atau analisis outlier dapat ditambahkan untuk memperkuat pemahaman terhadap data. Gunakan `matplotlib`, `seaborn`, atau pustaka visualisasi lain untuk menghasilkan grafik dengan tampilan informatif dan menarik.
 
 ---
 
