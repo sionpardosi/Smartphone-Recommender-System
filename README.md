@@ -25,12 +25,6 @@ Dengan menerapkan pendekatan Content-Based Filtering dan Collaborative Filtering
 * **Personalisasi**: Menyesuaikan rekomendasi dengan kebutuhan dan kebiasaan masing-masing pengguna.
 * **Aplikasi Luas**: Dapat diimplementasikan pada platform e-commerce untuk meningkatkan kepuasan pengguna dan nilai bisnis.
 
-### 📂 Referensi
-
-* [IBM: What is content-based filtering?](https://www.ibm.com/topics/content-based-filtering)
-* [IBM: What is collaborative filtering?](https://www.ibm.com/topics/collaborative-filtering)
-* [Secoda: How to build a recommendation system](https://www.secoda.co/blog/recommendation-system)
-+
 ---
 
 ## 🔍 Business Understanding
