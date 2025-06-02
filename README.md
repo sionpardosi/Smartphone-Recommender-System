@@ -153,8 +153,8 @@ Berikut adalah beberapa hasil eksplorasi awal terhadap data yang digunakan. Visu
 
   * Histogram ini menunjukkan sebaran rating yang diberikan pengguna.
   * Rating 8 merupakan nilai yang paling sering diberikan, diikuti oleh 7 dan 10.
-  ![Distribusi Tahun Rilis Ponsel](https://github.com/sionpardosi/Smartphone-Recommender-System/blob/main/image/rating.png)
   * Nilai rating rendah seperti 2, 3, dan 4 muncul dalam jumlah yang terbatas.
+  ![Distribusi Tahun Rilis Ponsel](https://github.com/sionpardosi/Smartphone-Recommender-System/blob/main/image/rating.png)
   -- -
 
 Catatan: Visualisasi tambahan seperti distribusi usia pengguna atau analisis outlier dapat ditambahkan untuk memperkuat pemahaman terhadap data. Gunakan `matplotlib`, `seaborn`, atau pustaka visualisasi lain untuk menghasilkan grafik dengan tampilan informatif dan menarik.
