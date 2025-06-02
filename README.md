@@ -126,6 +126,7 @@ Dengan informasi yang tersedia, sistem rekomendasi dapat dikembangkan secara men
 Berikut adalah beberapa hasil eksplorasi awal terhadap data yang digunakan. Visualisasi ini bertujuan untuk memahami pola distribusi data, menemukan insight awal, dan mengidentifikasi potensi masalah seperti ketidakseimbangan data atau outlier.
 
 * **Distribusi Merek Ponsel**
+-- -
   ![Distribusi Brand Ponsel](https://github.com/sionpardosi/Smartphone-Recommender-System/blob/main/image/visualisasi-Distribusi-Merek-Ponsel.png)
 
   * Visualisasi ini menunjukkan frekuensi kemunculan tiap merek dalam dataset.
