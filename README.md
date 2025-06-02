@@ -219,7 +219,7 @@ Jika seorang pengguna memasukkan ponsel "iPhone XR", sistem akan mencari model l
 ```text
 model_recommendations('iPhone XR')
 1. iPhone 13 Pro Max
-2. iPhone SE (2022)
+2. iPhone SE (2025)
 3. iPhone 13 Pro
 4. iPhone 13
 ```
@@ -255,7 +255,7 @@ model.fit(train_data, epochs=100, batch_size=8)
 ```
 
 **Contoh Kasus:**
-Pengguna dengan `user_id = 237` telah memberikan rating tinggi pada beberapa ponsel seperti Oppo Find X5 Pro dan iPhone 13. Berdasarkan pola kesukaan ini, sistem akan memprediksi ponsel lain yang kemungkinan besar juga akan disukai oleh pengguna tersebut.
+Pengguna dengan `user_id = 217` telah memberikan rating tinggi pada beberapa ponsel seperti Oppo Find X5 Pro dan iPhone 13. Berdasarkan pola kesukaan ini, sistem akan memprediksi ponsel lain yang kemungkinan besar juga akan disukai oleh pengguna tersebut.
 
 **Top-10 Rekomendasi:**
 
@@ -271,6 +271,32 @@ Top 10 recommendation for user 237:
 8. iPhone 13 Mini
 9. Pixel 6 Pro
 10. iPhone 13 Pro Max
+```
+
+**Top-N Recommendation Collaborative Filtering**
+```
+Showing recommendations for users: 217
+===========================
+cellphone with high ratings from user
+--------------------------------
+Oppo : Find X5 Pro
+OnePlus : Nord 2T
+OnePlus : 10 Pro
+Apple : iPhone 13
+Xiaomi : 11T Pro
+--------------------------------
+Top 10 cellphone recommendation
+--------------------------------
+Apple : iPhone XR
+Samsung : Galaxy S22
+Samsung : Galaxy A53
+Vivo : X80 Pro
+Apple : iPhone 13 Pro
+Apple : iPhone SE (2025)
+Samsung : Galaxy S22 Ultra
+Apple : iPhone 13 Mini
+Google : Pixel 6 Pro 
+Apple : iPhone 13 Pro Max
 ```
 
 ---
@@ -323,7 +349,6 @@ Top 10 recommendation for user 237:
 4. X80 Pro
 ...
 ```
-
 ---
 
 ### 🔍 Perbandingan Pendekatan
@@ -334,7 +359,6 @@ Top 10 recommendation for user 237:
 | Collaborative Filtering | Mengidentifikasi pola kesukaan dari komunitas pengguna secara otomatis | Rentan terhadap masalah cold-start (pengguna/item baru belum ada data) |
 
 ---
-
 
 ## ✅ Evaluation
 
