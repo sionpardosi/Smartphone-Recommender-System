@@ -10,9 +10,13 @@ Proyek ini dirancang untuk Machine Learning Terapan Dicoding. Semua elemen dari 
 
 ### ᵜ Latar Belakang Proyek
 
-Pasar ponsel pintar saat ini sangat kompetitif, dengan ribuan model dan spesifikasi teknis yang bervariasi. Banyak pengguna mengalami kesulitan dalam memilih ponsel yang sesuai dengan preferensi dan kebutuhannya. Hal ini diperparah dengan banyaknya pilihan dan kompleksitas fitur, sehingga konsumen awam seringkali merasa kebingungan.
+Seiring dengan berkembangnya teknologi digital, pasar ponsel pintar mengalami pertumbuhan yang sangat pesat. Setiap tahun, produsen merilis berbagai model baru dengan spesifikasi teknis yang semakin kompleks, mencakup performa prosesor, kapasitas memori, ukuran layar, kualitas kamera, hingga fitur-fitur berbasis AI. Akibatnya, konsumen sering dihadapkan pada tantangan dalam menentukan pilihan yang paling sesuai dengan kebutuhan mereka.
 
-Sistem rekomendasi dapat menjadi solusi untuk mempermudah proses pemilihan produk. Dengan menggunakan sistem rekomendasi, pengguna dapat memperoleh saran yang disesuaikan dengan kebutuhannya berdasarkan riwayat preferensi atau kesamaan antar produk.
+Kondisi ini semakin sulit bagi pengguna awam yang tidak memiliki pengetahuan teknis mendalam mengenai spesifikasi ponsel. Proses pencarian ponsel yang ideal bisa memakan waktu, membutuhkan perbandingan manual, dan belum tentu menghasilkan keputusan yang optimal. Masalah ini menunjukkan kebutuhan akan suatu sistem yang dapat membantu pengguna dalam memilih ponsel dengan cepat, efisien, dan personal.
+
+Sistem rekomendasi hadir sebagai solusi teknologi untuk menjawab tantangan tersebut. Sebagaimana disebutkan dalam studi Burke (2011), sistem rekomendasi adalah alat penting untuk berinteraksi dengan ruang informasi yang besar dan kompleks. Dalam konteks ini, sistem rekomendasi ponsel dibangun untuk menyederhanakan proses seleksi produk, dengan memanfaatkan data preferensi pengguna (melalui rating) dan informasi spesifikasi teknis ponsel.
+
+Dengan menerapkan pendekatan Content-Based Filtering dan Collaborative Filtering, sistem ini bertujuan untuk menyajikan rekomendasi yang relevan dan personal, baik berdasarkan produk serupa yang pernah disukai pengguna, maupun berdasarkan pola kesukaan pengguna lain yang serupa. Hasilnya diharapkan dapat membantu pengguna menemukan ponsel yang paling sesuai dari segi performa, fitur, harga, hingga sistem operasi.
 
 ### ✨ Pentingnya Proyek
 
