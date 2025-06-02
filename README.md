@@ -483,12 +483,10 @@ Sistem rekomendasi ini terbukti mampu memberikan solusi praktis untuk meningkatk
 
 ## 🔹 Referensi
 
-* IBM: What is content-based filtering? [Link](https://www.ibm.com/topics/content-based-filtering)
-* IBM: What is collaborative filtering? [Link](https://www.ibm.com/topics/collaborative-filtering)
-* Analytics Vidhya: Recommendation Systems Tutorial [Link](https://www.analyticsvidhya.com)
-* Secoda: Recommendation System Guide [Link](https://www.secoda.co)
-* Paul P.: Evaluating Recommender Systems [Medium](https://medium.com)
-* [R. Burke, A. Felfernig, and M. H. Göker, “Recommender Systems: An Overview”, AIMag, vol. 32, no. 3, pp. 13-18, Jun. 2011.](https://ojs.aaai.org/aimagazine/index.php/aimagazine/article/view/2361) 
+* [IBM: What is content-based filtering?](https://www.ibm.com/topics/content-based-filtering)
+* [IBM: What is collaborative filtering?](https://www.ibm.com/topics/collaborative-filtering)
+* [R. Burke, "Recommender Systems: An Overview", AI Magazine, 2011](https://ojs.aaai.org/index.php/aimagazine/article/view/2361)
+* [Secoda: How to build a recommendation system](https://www.secoda.co/blog/recommendation-system)
 
 ---
 
