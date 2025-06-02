@@ -490,6 +490,3 @@ Sistem rekomendasi ini terbukti mampu memberikan solusi praktis untuk meningkatk
 * [Secoda: How to build a recommendation system](https://www.secoda.co/blog/recommendation-system)
 
 ---
-
-> **Note:** Seluruh gambar visualisasi dapat diambil dari hasil output kode Python Anda.
-> Pastikan untuk mengunggah gambar ke GitHub dan menghubungkannya menggunakan path relatif (`![](image/path.png)`) agar dapat dirender dengan baik di halaman proyek.
