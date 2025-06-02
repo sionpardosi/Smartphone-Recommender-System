@@ -407,8 +407,7 @@ Dimana:
 Grafik berikut menunjukkan perkembangan RMSE selama proses training:
 
 ![Grafik train vs test](https://raw.githubusercontent.com/AbiyaMakruf/Dicoding-ModelSistemRekomendasi/main/image/image6.png)
-
-*Catatan: Silakan tambahkan grafik yang menampilkan `history.history['root_mean_squared_error']` dan `history.history['val_root_mean_squared_error']`*
+RMSE yang dihitung memberikan indikasi bahwa model prediksi rating memiliki tingkat kesalahan yang dapat diterima, sehingga memadai untuk tujuan rekomendasi.
 
 ### Analisis Hasil Evaluasi
 
