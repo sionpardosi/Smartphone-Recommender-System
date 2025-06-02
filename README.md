@@ -180,47 +180,161 @@ Catatan: Visualisasi tambahan seperti distribusi usia pengguna atau analisis out
 
 ## 🤖 Modeling and Result
 
-### ✔ Content-Based Filtering
+Pada tahap ini, dua pendekatan utama digunakan untuk membangun sistem rekomendasi ponsel, yaitu **Content-Based Filtering** dan **Collaborative Filtering**. Kedua metode ini memiliki karakteristik dan keunggulan masing-masing, dan keduanya digunakan untuk memberikan rekomendasi produk yang personal kepada pengguna berdasarkan konteks dan preferensi yang berbeda.
 
-* Menggunakan TF-IDF pada kolom `brand` dan `model`
-* Menghitung cosine similarity antar item
-* Output berupa rekomendasi 4 ponsel teratas berdasarkan model tertentu
+### 🧠 Content-Based Filtering
 
-#### Contoh Output:
+Pendekatan ini menghasilkan rekomendasi berdasarkan kemiripan fitur antar produk. Sistem akan merekomendasikan ponsel yang memiliki karakteristik serupa dengan ponsel yang pernah disukai atau dipilih oleh pengguna.
+
+**Parameter Utama:**
+
+* **TF-IDF Vectorizer**: Mengubah data teks (brand, model, operating system) menjadi bentuk numerik.
+* **Cosine Similarity**: Mengukur derajat kesamaan antar ponsel berdasarkan representasi numerik dari fitur-fitur deskriptifnya.
+
+**Tahapan Proses:**
+
+1. Menyiapkan dataframe baru yang hanya berisi fitur teks seperti `brand`, `model`, dan `operating_system`.
+2. Melakukan transformasi TF-IDF untuk setiap fitur teks tersebut.
+3. Menghitung kesamaan antar item menggunakan cosine similarity.
+4. Membuat fungsi yang menerima nama model dan menampilkan ponsel dengan tingkat kemiripan tertinggi.
+
+```python
+phone_new = pd.DataFrame({
+    'cellphone_id': cellphone_id,
+    'brand': brand,
+    'model': model,
+    'operating_system': operating_system,
+})
+
+# TF-IDF vectorization dan similarity
+tfidf_matrix = tf.fit_transform(phone_new['brand'])
+cosine_sim = cosine_similarity(tfidf_matrix, tfidf_matrix)
+```
+
+**Contoh Kasus:**
+Jika seorang pengguna memasukkan ponsel "iPhone XR", sistem akan mencari model lain dengan fitur serupa seperti merek dan sistem operasi, dan menghasilkan rekomendasi berdasarkan tingkat kemiripan fitur tersebut.
+
+**Top-4 Rekomendasi:**
 
 ```text
 model_recommendations('iPhone XR')
-# Output:
 1. iPhone 13 Pro Max
 2. iPhone SE (2022)
 3. iPhone 13 Pro
 4. iPhone 13
 ```
 
-### ✔ Collaborative Filtering
+---
 
-* Menggunakan model `RecommenderNet` berbasis Keras
-* Menggunakan embedding layer untuk `user_id` dan `cellphone_id`
-* Training 100 epoch dengan `batch_size = 8`
+### 🤝 Collaborative Filtering
 
-#### Contoh Output:
+Pendekatan ini menghasilkan rekomendasi berdasarkan pola perilaku dan preferensi pengguna lain yang memiliki karakteristik mirip. Dengan kata lain, sistem belajar dari interaksi pengguna-item untuk memprediksi produk yang disukai oleh pengguna tertentu.
+
+**Parameter Utama:**
+
+* **Loss Function**: `BinaryCrossentropy`
+* **Optimizer**: `Adam`
+* **Learning Rate**: `0.001`
+* **Metrics**: `RootMeanSquaredError`
+
+**Tahapan Proses:**
+
+1. Model `RecommenderNet` didefinisikan sebagai turunan dari `tf.keras.Model`, yang memiliki layer embedding untuk `user_id` dan `cellphone_id`.
+2. Model dikompilasi dengan parameter optimasi dan loss function.
+3. Pelatihan dilakukan selama 100 epoch dengan `batch_size = 8`.
+
+```python
+class RecommenderNet(tf.keras.Model):
+    def __init__(...):
+        # definisi embedding dan dense layers
+        ...
+
+model = RecommenderNet(num_users, num_phones, 50)
+model.compile(loss='binary_crossentropy', optimizer=Adam(0.001), metrics=[RootMeanSquaredError()])
+model.fit(train_data, epochs=100, batch_size=8)
+```
+
+**Contoh Kasus:**
+Pengguna dengan `user_id = 237` telah memberikan rating tinggi pada beberapa ponsel seperti Oppo Find X5 Pro dan iPhone 13. Berdasarkan pola kesukaan ini, sistem akan memprediksi ponsel lain yang kemungkinan besar juga akan disukai oleh pengguna tersebut.
+
+**Top-10 Rekomendasi:**
 
 ```text
-Top 10 cellphone recommendation for user 237:
+Top 10 recommendation for user 237:
 1. iPhone XR
 2. Galaxy S22
 3. Galaxy A53
+4. Vivo X80 Pro
+5. iPhone 13 Pro
+6. iPhone SE (2022)
+7. Galaxy S22 Ultra
+8. iPhone 13 Mini
+9. Pixel 6 Pro
+10. iPhone 13 Pro Max
+```
+
+---
+
+### 🔍 Perbandingan Pendekatan
+
+| Pendekatan              | Kelebihan                                                                   | Kekurangan                                                       |
+| ----------------------- | --------------------------------------------------------------------------- | ---------------------------------------------------------------- |
+| Content-Based Filtering | Dapat bekerja tanpa data pengguna lain, cocok untuk item baru               | Rekomendasi cenderung homogen, hanya berdasarkan kemiripan fitur |
+| Collaborative Filtering | Dapat memahami preferensi pengguna secara kolektif dan personalisasi tinggi | Rentan terhadap cold-start, baik untuk pengguna atau item baru   |
+
+---
+
+### 🤝 Collaborative Filtering
+
+Model ini membangun rekomendasi berdasarkan interaksi pengguna (rating) terhadap ponsel. Model mempelajari pola preferensi dari banyak pengguna dan menyimpulkan kesukaan bersama untuk memberikan rekomendasi.
+
+**Parameter Utama:**
+
+* Loss Function: `BinaryCrossentropy`
+* Optimizer: `Adam`
+* Learning Rate: `0.001`
+* Metrics: `RootMeanSquaredError`
+
+**Tahapan Implementasi:**
+
+```python
+class RecommenderNet(tf.keras.Model):
+    # inisialisasi dan layer embedding untuk user & item
+    ...
+
+model = RecommenderNet(num_users, num_phones, 50)
+model.compile(loss='binary_crossentropy', optimizer=Adam(0.001), metrics=[RootMeanSquaredError()])
+model.fit(train_data, epochs=100, batch_size=8)
+```
+
+**Cara Kerja Algoritma:**
+
+* Model mempelajari representasi pengguna dan item melalui embedding.
+* Setelah training, sistem dapat memprediksi rating untuk item yang belum pernah dinilai oleh pengguna.
+* Rekomendasi diberikan berdasarkan prediksi tertinggi dari model.
+
+**Contoh Output:**
+
+```text
+Top 10 recommendation for user 237:
+1. iPhone XR
+2. Galaxy S22
+3. Galaxy A53
+4. X80 Pro
 ...
 ```
 
-### ❌ Kelebihan dan Kekurangan
+---
 
-| Pendekatan              | Kelebihan                                      | Kekurangan                                       |
-| ----------------------- | ---------------------------------------------- | ------------------------------------------------ |
-| Content-Based Filtering | Tidak tergantung data pengguna lain            | Sulit memberikan rekomendasi variatif            |
-| Collaborative Filtering | Menyesuaikan rekomendasi berdasarkan komunitas | Mengalami masalah cold-start untuk pengguna baru |
+### 🔍 Perbandingan Pendekatan
+
+| Pendekatan              | Kelebihan                                                              | Kekurangan                                                             |
+| ----------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| Content-Based Filtering | Tidak memerlukan data pengguna lain, dapat merekomendasikan item baru  | Kurang variatif, hanya menyarankan item yang mirip dengan yang disukai |
+| Collaborative Filtering | Mengidentifikasi pola kesukaan dari komunitas pengguna secara otomatis | Rentan terhadap masalah cold-start (pengguna/item baru belum ada data) |
 
 ---
+
 
 ## ✅ Evaluation
 
