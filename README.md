@@ -364,7 +364,7 @@ Implementasi dua pendekatan sistem rekomendasi memberikan dampak sebagai berikut
 
 Grafik berikut menunjukkan perkembangan RMSE selama proses training:
 
-![Grafik train vs test](https://raw.githubusercontent.com/AbiyaMakruf/Dicoding-ModelSistemRekomendasi/main/image/image6.png)
+![Grafik train vs test](https://github.com/sionpardosi/Smartphone-Recommender-System/blob/main/image/model_metrics.png)
 RMSE yang dihitung memberikan indikasi bahwa model prediksi rating memiliki tingkat kesalahan yang dapat diterima, sehingga memadai untuk tujuan rekomendasi.
 
 ### Analisis Hasil Evaluasi
