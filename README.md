@@ -167,16 +167,15 @@ Catatan: Visualisasi tambahan seperti distribusi usia pengguna atau analisis out
 
 ## 🚮 Data Preparation
 
-### 🔀 Teknik Data Preparation
+- Menggunakan **TF-IDF (Term Frequency-Inverse Document Frequency)** untuk mentransformasi data teks `brand` menjadi fitur numerik.  
+  **Penjelasan singkat TF-IDF (pindahkan dari bagian Modeling):**  
+  > TF-IDF mengukur seberapa penting suatu kata dalam sebuah dokumen (di sini: nama merek) relatif terhadap keseluruhan kumpulan dokumen (seluruh daftar `brand`).  
+  > - “Term Frequency” (TF) menghitung frekuensi kemunculan kata dalam satu dokumen.  
+  > - “Inverse Document Frequency” (IDF) menghitung bobot pembalikan, sehingga kata yang sangat umum (misalnya “Samsung”) berbobot lebih rendah daripada kata yang jarang muncul.  
+  >  
+  > Hasilnya adalah representasi vektor berbobot (fitur numerik) untuk tiap `brand`, lalu digunakan dalam perhitungan **cosine similarity** pada tahap Content-Based Filtering.
 
-- Menggabungkan tiga dataset utama menggunakan `merge()`
-- Menangani missing values (`NaN`) pada kolom `occupation`, yang juga menghapus baris dengan gender tidak valid (`-Select Gender-`)
-- Menghapus outliers pada `rating`
-- Normalisasi nilai dengan encoding (label mapping) untuk kolom `occupation`
-- Menghapus duplikasi berdasarkan `cellphone_id` menggunakan `drop_duplicates()` sebelum proses Content-Based Filtering
-- Mengubah format penulisan dan merevisi kesalahan penulisan seperti `healthare` menjadi `healthcare`
-- Pembagian data menjadi training dan validation (80:20)
-- Menggunakan **TF-IDF** untuk mentransformasi data teks `brand` menjadi fitur numerik sebelum digunakan dalam Content-Based Filtering
+---
 
 ### 📄 Alasan Setiap Tahapan
 
