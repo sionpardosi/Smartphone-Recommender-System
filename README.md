@@ -167,15 +167,21 @@ Catatan: Visualisasi tambahan seperti distribusi usia pengguna atau analisis out
 
 ## 🚮 Data Preparation
 
+### 🔀 Teknik Data Preparation
+
+- Menggabungkan tiga dataset utama menggunakan `merge()`
+- Menangani missing values (`NaN`) pada kolom `occupation`, yang juga menghapus baris dengan gender tidak valid (`-Select Gender-`)
+- Menghapus outliers pada `rating`
+- Normalisasi nilai dengan encoding (label mapping) untuk kolom `occupation`
+- Menghapus duplikasi berdasarkan `cellphone_id` menggunakan `drop_duplicates()` sebelum proses Content-Based Filtering
+- Mengubah format penulisan dan merevisi kesalahan penulisan seperti `healthare` menjadi `healthcare`
+- Pembagian data menjadi training dan validation (80:20)
 - Menggunakan **TF-IDF (Term Frequency-Inverse Document Frequency)** untuk mentransformasi data teks `brand` menjadi fitur numerik.  
-  **Penjelasan singkat TF-IDF (pindahkan dari bagian Modeling):**  
   > TF-IDF mengukur seberapa penting suatu kata dalam sebuah dokumen (di sini: nama merek) relatif terhadap keseluruhan kumpulan dokumen (seluruh daftar `brand`).  
   > - “Term Frequency” (TF) menghitung frekuensi kemunculan kata dalam satu dokumen.  
   > - “Inverse Document Frequency” (IDF) menghitung bobot pembalikan, sehingga kata yang sangat umum (misalnya “Samsung”) berbobot lebih rendah daripada kata yang jarang muncul.  
   >  
   > Hasilnya adalah representasi vektor berbobot (fitur numerik) untuk tiap `brand`, lalu digunakan dalam perhitungan **cosine similarity** pada tahap Content-Based Filtering.
-
----
 
 ### 📄 Alasan Setiap Tahapan
 
@@ -190,7 +196,8 @@ Catatan: Visualisasi tambahan seperti distribusi usia pengguna atau analisis out
 
 ### 🧠 Content-Based Filtering
 
-Pendekatan ini menghasilkan rekomendasi berdasarkan kemiripan fitur antar produk. Dalam kasus ini, TF-IDF digunakan pada fitur `brand` untuk membentuk vektor numerik, dan cosine similarity digunakan untuk mengukur kesamaan antar produk.
+Pendekatan ini menghasilkan rekomendasi berdasarkan kemiripan fitur antar produk.  
+Content-Based Filtering menggunakan **hasil ekstraksi fitur** dari TF-IDF (penjelasan lengkapnya ada di bagian Data Preparation), kemudian menghitung **cosine similarity** antar produk untuk menentukan daftar rekomendasi.
 
 **Contoh Output untuk "iPhone XR":**
 
@@ -209,7 +216,7 @@ model_recommendations('iPhone XR')
 Output diambil berdasarkan user_id acak yang dipilih saat runtime:
 
 ```text
-Showing recommendations for users: 217
+Showing recommendations for users: 244
 ===========================
 cellphone with high ratings from user
 --------------------------------
@@ -244,79 +251,42 @@ Apple : iPhone 13 Pro Max
 
 ---
 
-## ✅ Evaluation
+## Evaluation
+Pada bagian ini, akan mengevaluasi model rekomendasi yang telah dibangun menggunakan metrik evaluasi yang tepat. Untuk model prediksi rating, kita akan menggunakan Root Mean Squared Error (RMSE) sebagai metrik evaluasi. Selain itu, akan mengevaluasi apakah proyek ini berhasil menjawab problem statement dan memberikan solusi yang diinginkan.
 
-Pada tahap evaluasi ini, dilakukan penilaian terhadap performa model sistem rekomendasi yang telah dikembangkan. Evaluasi mencakup pengukuran akurasi prediksi rating menggunakan metrik yang sesuai serta analisis pencapaian tujuan proyek berdasarkan problem statement yang telah ditetapkan.
+**Metrik Evaluasi**
 
-## ⚖️ Metrik Evaluasi
+Root Mean Squared Error (RMSE) adalah akar kuadrat dari rata-rata kuadrat kesalahan. Ini memberikan gambaran seberapa jauh prediksi model berbeda dari nilai sebenarnya dalam satuan yang sama dengan variabel yang diprediksi. RMSE sangat berguna karena memberikan penalti lebih besar untuk kesalahan yang lebih besar.
 
-### Root Mean Squared Error (RMSE)
+$$
+\text{RMSE} = \sqrt{\frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2}
+$$
 
-Metrik utama yang digunakan adalah **Root Mean Squared Error (RMSE)**, yang merupakan akar kuadrat dari rata-rata kesalahan kuadrat antara nilai prediksi dan nilai aktual. RMSE dipilih karena:
+Di mana:
 
-- Memberikan penalti lebih besar terhadap kesalahan prediksi yang besar
-- Menghasilkan nilai dalam satuan yang sama dengan variabel target (rating)
-- Mudah diinterpretasikan dan banyak digunakan dalam evaluasi model prediksi
+  - $y_i$ adalah nilai sebenarnya
+  - $\hat y_i$ adalah nilai prediksi
+  - $n$ adalah jumlah observasi
 
-Formula RMSE:
+- RMSE yang kecil mengindikasikan bahwa model memiliki performa yang baik karena kesalahan antara prediksi dan nilai aktual rendah.
+- RMSE yang besar mengindikasikan bahwa model memiliki performa yang buruk karena kesalahan antara prediksi dan nilai aktual tinggi.
 
-```math
-RMSE = \sqrt{\frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2}
-```
+**Hasil Proyek**
+|            | Train  | Test  |
+|------------|------- |-------|
+| RMSE       | 0.2668 | 0.6377|
 
-Dimana:
 
-- `yᵢ` = nilai rating sebenarnya
-- `ŷᵢ` = nilai rating hasil prediksi model
-- `n` = jumlah total observasi
+![Grafik train vs test](https://github.com/sionpardosi/Smartphone-Recommender-System/blob/main/image/model_metrics.png)
 
-**Interpretasi RMSE:**
+RMSE yang dihitung memberikan indikasi bahwa model prediksi rating memiliki tingkat kesalahan yang dapat diterima, sehingga memadai untuk tujuan rekomendasi.
 
-- Nilai RMSE yang lebih rendah menandakan prediksi model semakin akurat.
-- RMSE sangat berguna untuk mengevaluasi model prediktif berbasis rating.
+**Evaluasi Terhadap Business Understanding**
+- Menjawab Problem Statement: Model yang dibuat berhasil menjawab problem statement dengan memberikan rekomendasi ponsel berdasarkan model yang ada dan memprediksi rating ponsel yang belum diulas oleh pengguna. Pendekatan content-based filtering menggunakan model ponsel untuk memberikan rekomendasi yang relevan berdasarkan kesamaan model, brand, dan operating system, sementara collaborative filtering memanfaatkan interaksi pengguna-item (rating) untuk menemukan pola preferensi pengguna.
 
----
+- Mencapai Goals: Model content-based filtering dengan cosine similarity dan collaborative filtering dengan RecommenderNet berhasil mencapai tujuan untuk memberikan rekomendasi ponsel yang relevan. Content-based filtering menggunakan data deskriptif yaitu model ponsel untuk membuat profil item, sehingga meningkatkan akurasi rekomendasi dengan memperhitungkan kesamaan fitur (model, brand, operating system). Di sisi lain, collaborative filtering memanfaatkan data rating dari pengguna untuk menemukan pola preferensi dan merekomendasikan ponsel yang sesuai dengan kesukaan pengguna.
 
-### 2. Precision@K dan Recall@K
-
-Untuk mengevaluasi **Content-Based Filtering** dan **Collaborative Filtering** dari sisi kualitas rekomendasi (bukan prediksi rating), digunakan metrik:
-
-- **Precision@K**: Persentase item relevan dari total rekomendasi top-K yang diberikan.
-- **Recall@K**: Persentase item relevan dari semua item relevan yang tersedia bagi pengguna.
-
----
-
-## 📈 Hasil Evaluasi
-
-### 🌐 Collaborative Filtering (RecommenderNet)
-
-Model dievaluasi menggunakan RMSE pada data pelatihan dan validasi:
-
-| Dataset  | RMSE Score |
-| -------- | ---------- |
-| Training | 0.2042     |
-| Testing  | 0.2668     |
-
-**Interpretasi:**
-
-- RMSE training yang rendah menunjukkan model mampu belajar dengan baik dari data historis.
-- RMSE testing yang juga rendah menunjukkan model tidak overfitting dan memiliki generalisasi yang baik terhadap data baru.
-
----
-
-### 🔍 Content-Based Filtering
-
-Karena CBF menghasilkan daftar item serupa berdasarkan fitur konten (brand), evaluasi dilakukan menggunakan Precision@K dan Recall@K terhadap ground truth data:
-
-| Metrik      | Nilai |
-| ----------- | ----- |
-| Precision@5 | 0.60  |
-| Recall@5    | 0.42  |
-
-**Interpretasi:**
-
-- Dari 5 rekomendasi teratas, 60% di antaranya benar-benar relevan bagi pengguna.
-- Recall menunjukkan bahwa 42% dari semua item relevan berhasil ditemukan oleh sistem.
+- Dampak dari Solution Statement: Penggunaan beberapa pendekatan algoritma (content-based dan collaborative filtering) dan teknik evaluasi seperti RMSE memberikan dampak positif dengan meningkatkan relevansi dan akurasi rekomendasi. Content-based filtering memastikan bahwa model ponsel yang diberikan dapat memberikan rekomendasi yang relevan dengan ponsel lamanya karena mempertimbangkan kesamaan fitur (model, brand, operating system) bagi pengguna. Sementara itu, collaborative filtering memungkinkan sistem untuk memahami preferensi pengguna berdasarkan interaksi sebelumnya, memberikan rekomendasi yang dipersonalisasi. Solusi yang direncanakan memberikan hasil yang signifikan dalam mencapai tujuan proyek, memastikan bahwa rekomendasi yang diberikan sesuai dengan kebutuhan dan preferensi pengguna.
 
 ---
 
